@@ -1,0 +1,99 @@
+import { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [ text, setText] = useState('Hola Pablo')
+
+  const ChangeText = () => {
+    if(text === 'Hola Pablo'){
+      setText('Hola Martha')
+    }else{
+      setText('Hola Pablo')
+    }
+  }
+
+  return (
+    <div className='App'>
+      <h1>{text}</h1>
+    <button onClick={ChangeText}>Cambia el estado!!</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+import { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [ isVisible, setIsVisible ] = useState(false)
+
+  const toggleIsVisibility = () => {
+    setIsVisible(!isVisible)
+  }
+
+  return (
+    <div className='App'>
+      <input type={isVisible ? "text" : "password"} />
+      <button onClick={toggleIsVisibility}>Monstrar/Ocultar</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+BOMBILLA
+import { useState } from 'react';
+import './App.css';
+
+function App() {
+const [ isBulbOn, setIsBulbOn ] = useState(false)
+
+  return (
+    <div className='App'>
+      <div className='circul' style={{background: isBulbOn ? "yellow" : "gray"}}></div>
+      <button onClick={() => setIsBulbOn(!isBulbOn)}>On/Off</button>
+      
+    </div>
+  );
+}
+
+export default App;
+
+con otro componente
+
+import { useState } from 'react';
+import Bulb from './components/Bulb';
+import './App.css';
+
+function App() {
+  const [isBulbOn, setIsBulbOn] = useState(false);
+  const toggleBulbOn = () => setIsBulbOn(!isBulbOn)
+
+  return (
+    <div className='App'>
+     <Bulb isBulbOn={isBulbOn} toggleBulbOn={toggleBulbOn}/>
+     <Bulb isBulbOn={isBulbOn} toggleBulbOn={toggleBulbOn}/>
+     <Bulb isBulbOn={isBulbOn} toggleBulbOn={toggleBulbOn}/>
+    </div>
+  );
+}
+
+export default App;
+
+otro componente 
+
+const Bulb = ({ isBulbOn, toggleBulbOn }) => {
+    
+
+  return (
+    <div>
+      <div className='circul'style={{ background: isBulbOn ? "yellow" : "gray" }}></div>
+      <button onClick={() => toggleBulbOn(!isBulbOn)}>On / Off</button>
+    </div>
+  );
+};
+
+export default Bulb;

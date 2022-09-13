@@ -1,0 +1,21 @@
+.Image, img{
+    border-radius: 50%;
+}
+
+.Dates{
+    text-align: center;
+    justify-content: center;
+}
+
+.App{
+    width: 410px;
+    height: 430px;
+    background-color: #fff;
+    border-radius: 10%;
+    box-shadow: 2px 2px 8px lightblue;
+    color: black;
+}
+
+.Button, button{
+    color: red;
+}

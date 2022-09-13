@@ -1,0 +1,125 @@
+import './App.css'
+import User from './components/User'
+
+function App() {
+  const info = {
+    name: "andres felipe ",
+    age: 22,
+    ubication: "Colombia"
+  }
+
+  const buton = () => alert("Este Soy yo")
+
+  return (
+    <div className="App"> 
+    <User/>
+    <div onClick={buton} className="info">
+      <h3>Information</h3>
+      <ul>
+        Nombre: {info.name} <br/>
+        Edad: {info.age} años  <br/>
+        Nacionalidad: {info.ubication}
+      </ul>
+    </div>
+    </div>
+  )
+}
+
+export default App
+
+SEGUNDO COMPONENTE
+
+
+const User = () => {
+
+    const Hobbies = {
+        Movie: "Intelestelar",
+        Deporte: "Futbol",
+        Music: "Cristiana"
+    }
+
+    const hobieButon = () => alert("estos son mis Hobies")
+    return(
+        <div  onClick={hobieButon} className="Hobies">
+            <h3>Hobbies</h3>
+            <ul>
+                Mi Pelicula: {Hobbies.Movie} <br />
+                Mi Deporte: {Hobbies.Deporte} <br />
+                Mi Musica: {Hobbies.Music} <br />
+            </ul>
+        </div>
+    )
+}
+
+export default User;
+
+SEGUNDA CLASE CONTADOR Y USO DE PROPS
+
+import { useState } from 'react';
+import './App.css';
+import Card from './components/Card'
+
+function App() {
+
+  const [ counter, setCounter ] = useState(0)
+
+  const increment = () => {
+    setCounter(counter + 1 )
+  }
+  const Decrement = () => {
+    setCounter(counter - 1 )
+  }
+  
+  return (
+    <div className='App'>
+      <h1>{counter}</h1>
+
+      <button onClick={Decrement}>Decrement</button>
+      <button onClick={increment}>incrementar</button>
+      <Card 
+      title =' Sobre Mi'
+      item2 =' Andres Tobon'
+      item3 =' 22 años'
+      item4 =' Colombia'
+      bg ='red'
+      />
+      <Card 
+      title = 'mis hobies'
+      item2 = 'Jugar Futbol'
+      item3 = 'Tocar Guitar Hero'
+      item4 = 'Ver Pelis'
+      bg ='yellow'
+      />
+      <Card 
+      title = 'Mi Stack'
+      item2 = 'HTML CSS'
+      item3 = 'JAVASCRIPT'
+      item4 = 'REACT'
+      bg ='orange'
+      />
+
+
+    </div>
+  );
+}
+
+export default App;
+
+SEGUNDO COMPONENTE
+
+import React from 'react';
+
+const Card = ({ title, item2, item3, item4, bg}) => {
+    return (
+        <div className='Information' style={{background: bg}}>
+            <h3>{title}</h3>
+            <ul>
+                <li>{item2}</li>
+                <li>{item3}</li>
+                <li>{item4}</li>
+            </ul>
+        </div>
+    );
+};
+
+export default Card;
